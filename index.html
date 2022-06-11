@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="./src/styles/home_styles.css">
+       
+        <title>To Do List</title>
+    </head>
+    <body>
+        <button type="button" id="button-menu">
+            <i id="menu-icon" class="fa-solid fa-bars"></i>
+        </button>
+        <div class="cards-view">
+            <div class="card">
+                <p class="card-label">A fazer</p>
+                <p class="list-number"></p>
+            </div>            
+            <div class="card">
+                <p class="card-label">Concluídas</p>
+                <p class="list-number"></p>
+            </div>
+        </div>        
+        <div class="main">
+            <div class="input-container">
+                <form style="width: 100%; height: 100%;" id="task-form">                
+                    <input type="text" autocomplete="off" maxlength="100" placeholder="Digite aqui uma nova tarefa" required id="task-input">
+                    <button type="submit" onclick="addTask()">
+                        <i class="fa-solid fa-share"></i>
+                    </button>                
+                </form>
+            </div>
+            <div style="display: flex">
+                <div class="list">
+                    <h1>A Fazer</h1>
+                    <div id="tasks"></div>
+                </div>        
+                <div class="list">
+                    <h1>Concluídas</h1>
+                    <div id="done"></div>
+                </div>
+            </div>
+        </div>
+        <script src="https://kit.fontawesome.com/1fd57b3261.js"></script>
+        <script type="text/javascript" src="./src/config/main.js"></script>
+    </body>
+</html>
