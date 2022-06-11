@@ -5,7 +5,7 @@
 }
 
 body{    
-    background-color: #16141e; /* #414141 */
+    background-color: #533cc4; /* #414141 */
     width: 100vw;
     height: 100vh;    
     display: flex;    
@@ -20,12 +20,40 @@ body{
     border: none;
     margin-left: 1%;
     margin-top: 1%;
-    cursor: pointer
+    cursor: pointer;
 }
 
+
 #button-menu i{
-    font-size: 32px;
-    color: #ccc /* #f1f2f2 */
+  font-size: 32px;
+  color: #ccc; /* #f1f2f2 */
+    
+}
+
+#button-menu:hover i{
+  opacity: 0.8;
+}
+
+.text{
+  color: #fff !important;
+}
+
+#dark-mode-button{  
+  position: absolute;
+  right: 2%;
+  top: 3%;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+#dark-mode-button i{
+  color: #FFFF00;
+  font-size: 24px;
+}
+
+#dark-mode-button:hover i{
+  opacity: 0.8;
 }
 
 .cards-view{
@@ -46,7 +74,7 @@ body{
     height: 15%;
     border-radius: 15px;
     padding: 1%;
-    background-color: #1b1728;
+    background-color: #533cc4;
     box-shadow: 1px 1px 8px #000 inset;
     /*flex-direction: row;*/
     
@@ -68,7 +96,7 @@ body{
     font-size: 20px;
     /*border: 1px solid red;*/
     margin-bottom: 1%;
-    color: #CCC;
+    color: #1c1c1c;
     margin-left: 15%;
     margin-top: 10%;
 }
@@ -82,7 +110,7 @@ body{
     /*border: 1px solid red;*/
     text-align: right;
     font-size: 28px;
-    color: #CCC;
+    color: #1c1c1c;
     margin-right: 28%
 }
 
@@ -92,8 +120,8 @@ body{
   
 }
 
-.main{   
-    background-color: #231f30; /* #43464b */
+#main-container{   
+    background-color: #9081d9; /* #43464b */
     height: 78%;
     width: 80vw;
     margin-left: 6%;
@@ -107,7 +135,7 @@ body{
     animation: 2s alternate ;         
 }
 
-.main form button {
+#main-container form button {
   background-color: transparent;
   width: auto;
   height: auto;
@@ -115,7 +143,7 @@ body{
   cursor: pointer;  
   border: none;
 }
-.main i{
+#main-container i{
   color: #6959CD;  
   font-size: 32px;
 }
@@ -135,7 +163,7 @@ body{
 }
 
 .list  h1{
-  color: snow;
+  color: 1c1c1c;
   text-align: center;
   font-style: italic;
   text-decoration: underline;
@@ -163,7 +191,7 @@ body{
   color: #363636;
   font-size: 16px;
   padding-left: 2%;
-  background-color: #bebebe;
+  background-color: #b0a5e4;
   margin: 0;
 }
 
@@ -179,7 +207,7 @@ body{
 }
 
 #done{
-  color: #FFF;
+  color: #1c1c1c;
   padding: 2%;
   width: 100%;   
   display: flex;
@@ -194,7 +222,7 @@ body{
   cursor: pointer;
   transition: all 1s;
   background-color: transparent;  
-  color: #FFF;  
+  color: #1c1c1c;  
   width: auto;  
   display: flex;
   align-items: center;    
@@ -206,7 +234,7 @@ body{
   border: none
 }
 
-.main-container:hover .label {
+.tasks-main-container:hover .label {
   font-size: 22px;
 }
 
@@ -215,7 +243,7 @@ body{
   color: #A9A9A9;  
 }
 
-.main-container:hover :checked + .label{
+.tasks-main-container:hover :checked + .label{
   font-size: 22px !important;
 }
 
@@ -247,7 +275,7 @@ body{
   
 }
 
-.main-container{
+.tasks-main-container{
   /* border: 2px solid red; */
   display: flex;
   align-items: center;
@@ -259,18 +287,19 @@ body{
   padding-top: 1%;
   padding-bottom: 1%;
   border-radius: 10px;
-  background-color: #1b1728;
+  background-color: #533cc4;
   box-shadow: 1px 1px 8px #000 inset;
   cursor: pointer;
-  transition: background-color, box-shadow 2s;
+  transition: background-color 2s, box-shadow 2s;
   flex-grow: 1;
+  animation: slideInUp 1s
 
   
   
 }
 
-.main-container:hover{
-  background-color: #242034; /* #16141e */  
+.tasks-main-container:hover{
+  background-color: #5b42cb; /* #16141e */  
 }
 
 ::-webkit-scrollbar{
@@ -299,6 +328,18 @@ body{
       margin-bottom: 12%;      
     }
   }
+
+
+@keyframes slideInUp {
+  from {
+    margin-top: 150%;      
+  }
+
+  to {
+    margin-bottom: 1%;
+    margin-top: 1%;    
+  }
+}
 
   @keyframes slideup {
     from {
