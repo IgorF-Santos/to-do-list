@@ -32,6 +32,7 @@ darkMode.addEventListener('click', function(){
         bodyElement.style.transition = 'background-color 2s';
         mainContainerElement.style.backgroundColor = '#231f30';
         mainContainerElement.style.transition = 'background-color 2s';
+        taskInputElement.style.textColor = '#000';
 
         for(let i=0; i < textElements.length; i++){
             //textElements[i].style.color = 'snow';
@@ -98,8 +99,7 @@ const done = document.getElementById('done');
 form.onsubmit = function (e) {    
     e.preventDefault();
     const inputField = document.getElementById('task-input'); 
-    addTask(inputField.value);
-    //arraytasks(inputField.value)
+    addTask(inputField.value);    
     form.reset();
     
 };
@@ -111,36 +111,43 @@ function addTask(description) {
         const taskMainContainerElement = document.createElement('div');
         const taskContainer = document.createElement('div');
         const newTask = document.createElement('input');
-        const taskLabel = document.createElement('text-area');
+        const taskLabel = document.createElement('input');
         const deleteButton = document.createElement('button');
         const deleteIcon = document.createElement('i');
+        const editButton = document.createElement('button');
+        const editIcon = document.createElement('i');
         const taskDescriptionNode = document.createTextNode(description);
         
         newTask.setAttribute('type', 'checkbox');
         newTask.setAttribute('name', description);
-        newTask.setAttribute('id', description);                
-        //newTask.setAttribute('checked', false);
+        newTask.setAttribute('id', description);           
         taskLabel.setAttribute('value', description);
         taskLabel.setAttribute('readonly', true);
+        taskLabel.setAttribute('rows', 4);
+        taskLabel.setAttribute('maxlength', 100)
         deleteButton.setAttribute('type', 'button');        
-        deleteIcon.classList.add("fa-solid", "fa-trash-can")        
+        deleteIcon.classList.add("fa-solid", "fa-trash-can")
+        editIcon.classList.add("fa-solid", "fa-pencil")
 
         newTask.classList.add('check')     
         taskLabel.classList.add('label', 'text')   
         
         taskContainer.classList.add('task-item');
-        deleteButton.classList.add('delete-button')
+        deleteButton.classList.add('delete-button');
+        editButton.classList.add('edit-button');
         taskMainContainerElement.classList.add('tasks-main-container')          
         taskMainContainerElement.appendChild(taskContainer);
         taskContainer.appendChild(newTask);
-        taskContainer.appendChild(taskLabel);
+        taskContainer.appendChild(taskLabel);        
+        taskMainContainerElement.appendChild(editButton);
         taskMainContainerElement.appendChild(deleteButton);
         deleteButton.appendChild(deleteIcon);
+        editButton.appendChild(editIcon);
         taskLabel.appendChild(taskDescriptionNode);        
         taskList.appendChild(taskMainContainerElement);
 
         increaseTaskToDoNumber();   
-        increaseDoneTasksNumber();             
+                   
 
         deleteButton.addEventListener('click', () => {
             if(taskList.querySelector('#' + description)){
@@ -151,26 +158,25 @@ function addTask(description) {
             }
          
         })
-
-        taskContainer.addEventListener('click', () => {
-//            let statusInputCheck = newTask.getAttribute('checked');
-            if(!newTask.checked && (newTask.checked !== null || newTask.checked !== true || newTask.checked !== "checked" || newTask.checked !== undefined)){                
-                newTask.setAttribute('checked', true);
-                //console.log(newTask)
-                done.appendChild(taskMainContainerElement);
-            }
-            else if(done.querySelector('#' + description)){
-                newTask.removeAttribute('checked');
-                done.removeChild(taskMainContainerElement);
-                taskList.appendChild(taskMainContainerElement)
-                //console.log(newTask)
-            }
-            
+               
+        newTask.addEventListener('click', function() {
+            checkCheckBox(newTask, taskMainContainerElement, editButton, taskLabel, editIcon);
+            increaseDoneTasksNumber();                        
         })
 
-    
+        editButton.addEventListener('click', function() {
+            editTask(editButton, editIcon, taskLabel, taskMainContainerElement);
+        })
         
-
+        taskLabel.addEventListener('blur', function(){
+            if(editButton.querySelector('.fa-square-check')){
+                taskLabel.setAttribute('readonly', true);
+                editIcon.classList.replace('fa-square-check', 'fa-pencil')                
+                
+                taskMainContainerElement.style.opacity = '1';
+            }            
+        })
+                                           
         /*const teste = document.getElementsByClassName('check');
         //let teste = newTask.getAttribute("checked")
 
@@ -197,55 +203,58 @@ function addTask(description) {
             console.log(TASKS)
         }
         */
-    }    
-    ///const newTask = document.getElementsByClassName('check');
-    //closeTask(description)
+    }        
 }
 
+
+function checkCheckBox(newTask, taskMainContainerElement, editButton, taskLabel, editIcon){
+    if(newTask.checked){        
+        done.appendChild(taskMainContainerElement);
+        taskLabel.setAttribute('readonly', true);
+        taskMainContainerElement.removeChild(editButton);
+    }
+    else{        
+        done.removeChild(taskMainContainerElement);
+        taskList.appendChild(taskMainContainerElement);    
+        taskMainContainerElement.insertBefore(editButton, taskMainContainerElement.children[1]);
+        if(editButton.querySelector('.fa-square-check')){
+            editIcon.classList.remove('fa-square-check');
+            editIcon.classList.add('fa-pencil');
+        }
+    }
+}
+
+function editTask(editButton, editIcon, taskLabel,taskMainContainerElement){    
+    for(let i=0; i < taskMainContainerElement.length; i++){            
+        taskMainContainerElement[i].style.filter = 'blur(1px)';}
+    if(editButton.querySelector('.fa-pencil')){
+        taskLabel.removeAttribute('readonly');
+        editIcon.classList.replace('fa-pencil', 'fa-square-check');        
+        taskMainContainerElement.style.opacity = '0.7';        
+        taskLabel.focus();                               
+    }
+    else{
+        taskLabel.setAttribute('readonly', true);
+        editIcon.classList.replace('fa-square-check', 'fa-pencil');
+        taskMainContainerElement.style.opacity = '1';    
+    }
+}
+
+
+
 function increaseTaskToDoNumber(){
-    const todo = document.querySelector('.list-number');
-    const countCheckBox = taskList.getElementsByTagName('input').length;    
-   
-    const todoNode = document.createTextNode(countCheckBox);
-    todo.appendChild(todoNode);
-    todo.replaceChild(todoNode, todoNode);
-    const vsf= document.getElementsByClassName('task-item').length
-    //console.log(vsf);
+    const todo = dashboardContainer.querySelector('.list-number');
+    const countCheckBox = taskList.getElementsByClassName('check').length;  
+    todo.innerHTML = countCheckBox;
 }
 
 function increaseDoneTasksNumber(){
     const todo = document.querySelector('.done-tasks-number');
-    const countCheckBox = done.getElementsByTagName('input').length;    
-   
-    const todoNode = document.createTextNode(countCheckBox);
-    todo.appendChild(todoNode);
-    //todo.replaceChild(todoNode, todoNode);
-    //const vsf= document.getElementsByClassName('task-item').length
-    //console.log(vsf);
+    const countCheckBox = done.getElementsByClassName('check').length;    
+    todo.innerHTML = countCheckBox;
+    increaseTaskToDoNumber()    
 }
 
-//const newTask = document.getElementsByClassName('check');
-
-
-
-
-
-
-
-
-/*
-    
-    newTask.addEventListener('click', teste())   
-    function teste () {
-        newTask.setAttribute('onclick', teste());
-        if(newTask.checked){
-            console.log('checado')
-        }
-        else{
-            console.log('não checado')
-        }
-    }
-    */
 
 
 
@@ -257,5 +266,6 @@ function increaseDoneTasksNumber(){
 
     
     
+
 
 

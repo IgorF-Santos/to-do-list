@@ -35,7 +35,7 @@ body{
 }
 
 .text{
-  color: #fff !important;
+  color: #fff ;
 }
 
 #dark-mode-button{  
@@ -76,19 +76,19 @@ body{
     padding: 1%;
     background-color: #533cc4;
     box-shadow: 1px 1px 8px #000 inset;
-    /*flex-direction: row;*/
-    
+    /*flex-direction: row;*/    
     margin-bottom: 12%;
     animation-duration: 2s;
     animation-name: slidein;
-    margin-left: 12%    
+    margin-left: 12%;
+    transition: width 1s, height 1s, transform 1s;
+    cursor: pointer;
 }
 
 .card:hover{
   width: 100%;
   height: 18%;
-  border: 1px inset #6959CD;
-  transition: width 1s, height 1s, transform 1s;
+  border: 1px inset #6959CD;  
 }
 
 
@@ -96,9 +96,10 @@ body{
     font-size: 20px;
     /*border: 1px solid red;*/
     margin-bottom: 1%;
-    color: #1c1c1c;
+    color: #FFF;
     margin-left: 15%;
     margin-top: 10%;
+    transition: font-size 1s, font-weight 1s;
 }
 
 .card:hover .card-label{
@@ -110,8 +111,9 @@ body{
     /*border: 1px solid red;*/
     text-align: right;
     font-size: 28px;
-    color: #1c1c1c;
-    margin-right: 28%
+    color: #FFF;
+    margin-right: 28%;
+    transition: font-size 1s, font-weight 1s;
 }
 
 .card:hover .list-number{
@@ -143,7 +145,7 @@ body{
   cursor: pointer;  
   border: none;
 }
-#main-container i{
+#main-container #task-form i{
   color: #6959CD;  
   font-size: 32px;
 }
@@ -193,7 +195,9 @@ body{
   padding-left: 2%;
   background-color: #b0a5e4;
   margin: 0;
+  
 }
+
 
 #tasks{
   /* border: 1px solid #FFF; */
@@ -207,7 +211,7 @@ body{
 }
 
 #done{
-  color: #1c1c1c;
+  color: #fff;
   padding: 2%;
   width: 100%;   
   display: flex;
@@ -222,12 +226,12 @@ body{
   cursor: pointer;
   transition: all 1s;
   background-color: transparent;  
-  color: #1c1c1c;  
-  width: auto;  
-  display: flex;
-  align-items: center;    
+  color: #fff;  
+  width: 100%;  
+  overflow-y:hidden;    
   word-break: break-all;
-  height: 100%;    
+  height: 100%;  
+  border: none
 }
 
 .label:focus{
@@ -252,7 +256,8 @@ body{
   height: auto;
   border: none;
   background-color: transparent;
-  cursor: pointer;       
+  cursor: pointer;  
+  margin-left: 4%      
 }
 
 .delete-button i{
@@ -266,12 +271,33 @@ body{
   opacity: 0.6;
 }
 
+.edit-button{  
+  width: auto;
+  height: auto;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;  
+  margin-left: 2%;      
+}
+
+.edit-button i{
+  font-size: 24px;
+  color: #6959CD;
+  transition: font-size 1s;
+}
+
+.edit-button:hover i{
+  font-size: 28px;
+  opacity: 0.6;
+}
+
 .task-item{        
   /* border: solid 1px #FFF; */
   display: flex;  
   align-items: center;
   margin-left: 2%;    
-  width: 92%
+  width: 92%;
+  height: 100%;
   
 }
 
