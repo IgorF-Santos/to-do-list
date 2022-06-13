@@ -2,6 +2,9 @@ const btn = document.querySelector('#button-menu');
 const dashboardContainer = document.querySelector('.cards-view');
 const icon = document.querySelector('#menu-icon');
 const darkMode = document.getElementById('dark-mode-button');
+let turnOnDarkMode = false;
+let teste = false;
+
 
 btn.addEventListener('click', function(){
     if(dashboardContainer.style.display === 'block'){
@@ -15,79 +18,7 @@ btn.addEventListener('click', function(){
 });
 
 darkMode.addEventListener('click', function(){
-    const bodyElement = document.getElementById('body-container');
-    const cardsElements = document.getElementsByClassName('card');
-    const mainContainerElement = document.getElementById('main-container');
-    const taskInputElement = document.getElementById('task-input');
-    const taskMainContainerElement = document.getElementsByClassName('tasks-main-container');    
-    const textElements = document.getElementsByClassName('text');   
-    const darkModeIcon = darkMode.querySelector('.fa-solid')
-
-    if(darkModeIcon.className === 'fa-solid fa-sun'){
-        darkModeIcon.className = "fa-solid fa-moon";
-
-        darkModeIcon.style.color= '#E0FFFF';
-        
-        bodyElement.style.backgroundColor = '#16141e'
-        bodyElement.style.transition = 'background-color 2s';
-        mainContainerElement.style.backgroundColor = '#231f30';
-        mainContainerElement.style.transition = 'background-color 2s';
-        taskInputElement.style.textColor = '#000';
-
-        for(let i=0; i < textElements.length; i++){
-            //textElements[i].style.color = 'snow';
-            //textElements[i].style.transition = 'color 2s';
-        }
-
-        for(let i=0; i < cardsElements.length; i++){
-            cardsElements[i].style.backgroundColor = '#1b1728';
-            cardsElements[i].style.transition = 'background-color 2s';
-        }
-        
-        for(let i=0; i < taskMainContainerElement.length; i++){
-            taskMainContainerElement[i].style.backgroundColor = '#1b1728';
-            taskMainContainerElement[i].style.transition = 'background-color 2s';
-
-            taskMainContainerElement[i].addEventListener('mouseover', function() {
-                taskMainContainerElement[i].style.backgroundColor = '#242034'
-            });
-            taskMainContainerElement[i].addEventListener('mouseout', function() {
-                taskMainContainerElement[i].style.backgroundColor = '#1b1728'
-            });            
-        }
-        
-    }
-    else{
-        darkModeIcon.className = "fa-solid fa-sun";
-
-        darkModeIcon.style.color= '#FFFF00';
-        bodyElement.style.backgroundColor = '#604bc9'
-        bodyElement.style.transition = 'background-color 2s';
-        mainContainerElement.style.backgroundColor = '#4a35b0';
-        mainContainerElement.style.transition = 'background-color 2s';
-
-        for(let i=0; i < textElements.length; i++){
-            //textElements[i].style.color = '#1c1c1c';
-            //textElements[i].style.transition = 'color 2s';
-        }
-
-        for(let i=0; i < cardsElements.length; i++){
-            cardsElements[i].style.backgroundColor = '#533cc4';
-            cardsElements[i].style.transition = 'background-color 2s';
-        }
-        
-        for(let i=0; i < taskMainContainerElement.length; i++){
-            taskMainContainerElement[i].style.backgroundColor = '#533cc4';
-            taskMainContainerElement[i].style.transition = 'background-color 2s';
-
-            taskMainContainerElement[i].addEventListener('mouseover', function() {
-                taskMainContainerElement[i].style.backgroundColor = '#5b42cb'
-            });
-            taskMainContainerElement[i].addEventListener('mouseout', function() {
-                taskMainContainerElement[i].style.backgroundColor = '#533cc4'
-            });            
-        }
-    }
+    setDarkMode(turnOnDarkMode)
 })
 
 
@@ -100,8 +31,7 @@ form.onsubmit = function (e) {
     e.preventDefault();
     const inputField = document.getElementById('task-input'); 
     addTask(inputField.value);    
-    form.reset();
-    
+    form.reset();    
 };
 
 
@@ -147,6 +77,35 @@ function addTask(description) {
         taskList.appendChild(taskMainContainerElement);
 
         increaseTaskToDoNumber();   
+
+        if(turnOnDarkMode == true){
+            const taskMainContainerElement = document.getElementsByClassName('tasks-main-container');
+            for(let i=0; i < taskMainContainerElement.length; i++){
+                taskMainContainerElement[i].style.backgroundColor = '#1b1728';
+                taskMainContainerElement[i].style.transition = 'background-color 2s';
+    
+                taskMainContainerElement[i].addEventListener('mouseover', function() {
+                    taskMainContainerElement[i].style.backgroundColor = '#242034'
+                });
+                taskMainContainerElement[i].addEventListener('mouseout', function() {
+                    taskMainContainerElement[i].style.backgroundColor = '#1b1728'
+                });            
+            } 
+        }
+        else{            
+            const taskMainContainerElement = document.getElementsByClassName('tasks-main-container');
+            for(let i=0; i < taskMainContainerElement.length; i++){
+                taskMainContainerElement[i].style.backgroundColor = '#533cc4';
+                taskMainContainerElement[i].style.transition = 'background-color 2s';
+    
+                taskMainContainerElement[i].addEventListener('mouseover', function() {
+                    taskMainContainerElement[i].style.backgroundColor = '#5b42cb'
+                });
+                taskMainContainerElement[i].addEventListener('mouseout', function() {
+                    taskMainContainerElement[i].style.backgroundColor = '#533cc4'
+                });            
+            }
+        }
                    
 
         deleteButton.addEventListener('click', () => {
@@ -164,15 +123,14 @@ function addTask(description) {
             increaseDoneTasksNumber();                        
         })
 
-        editButton.addEventListener('click', function() {
+        editButton.addEventListener('dblclick', function() {
             editTask(editButton, editIcon, taskLabel, taskMainContainerElement);
         })
         
         taskLabel.addEventListener('blur', function(){
-            if(editButton.querySelector('.fa-square-check')){
+            if(editButton.querySelector('.fa-square-check')){                
                 taskLabel.setAttribute('readonly', true);
-                editIcon.classList.replace('fa-square-check', 'fa-pencil')                
-                
+                editIcon.classList.replace('fa-square-check', 'fa-pencil')                                
                 taskMainContainerElement.style.opacity = '1';
             }            
         })
@@ -224,16 +182,14 @@ function checkCheckBox(newTask, taskMainContainerElement, editButton, taskLabel,
     }
 }
 
-function editTask(editButton, editIcon, taskLabel,taskMainContainerElement){    
-    for(let i=0; i < taskMainContainerElement.length; i++){            
-        taskMainContainerElement[i].style.filter = 'blur(1px)';}
-    if(editButton.querySelector('.fa-pencil')){
+function editTask(editButton, editIcon, taskLabel, taskMainContainerElement){ 
+    if(editButton.querySelector('.fa-pencil')){        
         taskLabel.removeAttribute('readonly');
         editIcon.classList.replace('fa-pencil', 'fa-square-check');        
         taskMainContainerElement.style.opacity = '0.7';        
         taskLabel.focus();                               
     }
-    else{
+    else{        
         taskLabel.setAttribute('readonly', true);
         editIcon.classList.replace('fa-square-check', 'fa-pencil');
         taskMainContainerElement.style.opacity = '1';    
@@ -255,8 +211,83 @@ function increaseDoneTasksNumber(){
     increaseTaskToDoNumber()    
 }
 
+function setDarkMode(){    
+    const bodyElement = document.getElementById('body-container');
+    const cardsElements = document.getElementsByClassName('card');
+    const mainContainerElement = document.getElementById('main-container');
+    const taskInputElement = document.getElementById('task-input');
+    const taskMainContainerElement = document.getElementsByClassName('tasks-main-container');    
+    const textElements = document.getElementsByClassName('text');   
+    const darkModeIcon = darkMode.querySelector('.fa-solid')
 
+    if(darkModeIcon.className === 'fa-solid fa-sun'){
+        turnOnDarkMode = true
 
+        darkModeIcon.className = "fa-solid fa-moon";
+
+        darkModeIcon.style.color= '#E0FFFF';        
+        bodyElement.style.backgroundColor = '#16141e'
+        bodyElement.style.transition = 'background-color 2s';
+        mainContainerElement.style.backgroundColor = '#231f30';
+        mainContainerElement.style.transition = 'background-color 2s';
+        taskInputElement.style.textColor = '#000';
+
+        for(let i=0; i < textElements.length; i++){
+            //textElements[i].style.color = 'snow';
+            //textElements[i].style.transition = 'color 2s';
+        }
+
+        for(let i=0; i < cardsElements.length; i++){
+            cardsElements[i].style.backgroundColor = '#1b1728';
+            cardsElements[i].style.transition = 'background-color 2s';
+        }
+        
+        for(let i=0; i < taskMainContainerElement.length; i++){
+            taskMainContainerElement[i].style.backgroundColor = '#1b1728';
+            taskMainContainerElement[i].style.transition = 'background-color 2s';
+
+            taskMainContainerElement[i].addEventListener('mouseover', function() {
+                taskMainContainerElement[i].style.backgroundColor = '#242034'
+            });
+            taskMainContainerElement[i].addEventListener('mouseout', function() {
+                taskMainContainerElement[i].style.backgroundColor = '#1b1728'
+            });            
+        }
+    }
+    else{
+        turnOnDarkMode = false
+
+        darkModeIcon.className = "fa-solid fa-sun";
+        
+        darkModeIcon.style.color= '#FFFF00';
+        bodyElement.style.backgroundColor = '#604bc9'
+        bodyElement.style.transition = 'background-color 2s';
+        mainContainerElement.style.backgroundColor = '#4a35b0';
+        mainContainerElement.style.transition = 'background-color 2s';
+
+        for(let i=0; i < textElements.length; i++){
+            //textElements[i].style.color = '#1c1c1c';
+            //textElements[i].style.transition = 'color 2s';
+        }
+
+        for(let i=0; i < cardsElements.length; i++){
+            cardsElements[i].style.backgroundColor = '#533cc4';
+            cardsElements[i].style.transition = 'background-color 2s';
+        }
+        
+        for(let i=0; i < taskMainContainerElement.length; i++){
+            taskMainContainerElement[i].style.backgroundColor = '#533cc4';
+            taskMainContainerElement[i].style.transition = 'background-color 2s';
+
+            taskMainContainerElement[i].addEventListener('mouseover', function() {
+                taskMainContainerElement[i].style.backgroundColor = '#5b42cb'
+            });
+            taskMainContainerElement[i].addEventListener('mouseout', function() {
+                taskMainContainerElement[i].style.backgroundColor = '#533cc4'
+            });            
+        }
+    }    
+}
 
 
 

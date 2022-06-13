@@ -8,7 +8,7 @@ body{
     background-color: #533cc4; /* #414141 */
     width: 100vw;
     height: 100vh;    
-    display: flex;    
+    display: flex;
 }
 
 #button-menu{    
@@ -382,3 +382,76 @@ body{
       margin-left: 10%;
     }
   }
+
+@media only screen and (max-width: 900px){
+  body{
+    display: block;    
+  }
+  .cards-view{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    /* border: 1px solid #FFF; */
+    align-self: flex-start;
+    margin-bottom: 8%;
+    padding: 0;
+    margin-top: 5%;
+    margin-left: 6%
+    
+  }
+
+  .card{
+    margin-left: 4%;
+    margin-bottom: 0;
+  }
+
+  #button-menu{
+    display: none;
+    
+  }
+
+  #main-container{
+    height: 55%;
+    width:85vw;
+    padding-left: 1%;
+    padding-right: 1%;    
+  }
+
+  .list{
+    height: 48vh;
+    margin-top: 2%;    
+  }
+
+  .list h1{
+    font-size: 24px;
+  }
+
+  .tasks-main-container{
+    width: 100%;
+    margin-bottom: 3%;
+  }
+
+  .tasks-main-container .delete-button i{
+    font-size: 18px;
+  }
+
+  .tasks-main-container .edit-button i{
+    font-size: 18px;
+  }
+
+  .tasks-main-container .label{
+    font-size: 18px;
+  }
+
+  .tasks-main-container .delete-button:hover i{
+    font-size: 20px;
+  }
+
+  .tasks-main-container .edit-button:hover i{
+    font-size: 20px;
+  }
+
+  .tasks-main-container:hover .label{
+    font-size: 20px;
+  }
+}
