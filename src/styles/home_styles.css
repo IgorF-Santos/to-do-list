@@ -1,26 +1,26 @@
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;    
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;    
 }
 
 body{    
-    background-color: #533cc4; /* #414141 */
-    width: 100vw;
-    height: 100vh;    
-    display: flex;
+  background-color: #533cc4; /* #414141 */
+  width: 100vw;
+  height: 100vh;    
+  display: flex;
 }
 
 #button-menu{    
-    position:absolute;
-    width: auto;
-    height: 5%;    
-    background-color: transparent;
-    /* border: 1px #000 solid; */
-    border: none;
-    margin-left: 1%;
-    margin-top: 1%;
-    cursor: pointer;
+  position:absolute;
+  width: auto;
+  height: 5%;    
+  background-color: transparent;
+  /* border: 1px #000 solid; */
+  border: none;
+  margin-left: 1%;
+  margin-top: 1%;
+  cursor: pointer;
 }
 
 
@@ -57,32 +57,31 @@ body{
 }
 
 .cards-view{
-    display: none;
-    /* border: 1px #FFF solid; */
-    width:20%;
-    height: auto;
-    padding: 1%;
-    align-content: space-around;
-    margin-top: 4%;
-    padding-left: 1%;
-    padding-right: 1%;
-    
+  display: none;
+  /* border: 1px #FFF solid; */
+  width:20%;
+  height: auto;
+  padding: 1%;
+  align-content: space-around;
+  margin-top: 4%;
+  padding-left: 1%;
+  padding-right: 1%;    
 }
 
 .card{
-    width: 95%;
-    height: 15%;
-    border-radius: 15px;
-    padding: 1%;
-    background-color: #533cc4;
-    box-shadow: 1px 1px 8px #000 inset;
-    /*flex-direction: row;*/    
-    margin-bottom: 12%;
-    animation-duration: 2s;
-    animation-name: slidein;
-    margin-left: 12%;
-    transition: width 1s, height 1s, transform 1s;
-    cursor: pointer;
+  width: 95%;
+  height: 15%;
+  border-radius: 15px;
+  padding: 1%;
+  background-color: #533cc4;
+  box-shadow: 1px 1px 8px #000 inset;
+  /*flex-direction: row;*/    
+  margin-bottom: 12%;
+  animation-duration: 2s;
+  animation-name: slidein;
+  margin-left: 12%;
+  transition: width 1s, height 1s, transform 1s;
+  cursor: pointer;
 }
 
 .card:hover{
@@ -93,13 +92,13 @@ body{
 
 
 .card-label{
-    font-size: 20px;
-    /*border: 1px solid red;*/
-    margin-bottom: 1%;
-    color: #FFF;
-    margin-left: 15%;
-    margin-top: 10%;
-    transition: font-size 1s, font-weight 1s;
+  font-size: 20px;
+  /*border: 1px solid red;*/
+  margin-bottom: 1%;
+  color: #FFF;
+  margin-left: 15%;
+  margin-top: 10%;
+  transition: font-size 1s, font-weight 1s;
 }
 
 .card:hover .card-label{
@@ -108,33 +107,32 @@ body{
 }
 
 .list-number{    
-    /*border: 1px solid red;*/
-    text-align: right;
-    font-size: 28px;
-    color: #FFF;
-    margin-right: 28%;
-    transition: font-size 1s, font-weight 1s;
+  /*border: 1px solid red;*/
+  text-align: right;
+  font-size: 28px;
+  color: #FFF;
+  margin-right: 28%;
+  transition: font-size 1s, font-weight 1s;
 }
 
 .card:hover .list-number{
   font-size: 34px;
-  font-weight: bold;
-  
+  font-weight: bold;  
 }
 
 #main-container{   
-    background-color: #9081d9; /* #43464b */
-    height: 78%;
-    width: 80vw;
-    margin-left: 6%;
-    margin-right: 6%;    
-    border-radius: 12px;
-    box-shadow: 1px 1px 10px #000;
-    /*display: flex;*/
-    align-self: center;    
-    justify-content: center;
-    justify-self: end;
-    animation: 2s alternate ;         
+  background-color: #9081d9; /* #43464b */
+  height: 78%;
+  width: 80vw;
+  margin-left: 6%;
+  margin-right: 6%;    
+  border-radius: 12px;
+  box-shadow: 1px 1px 10px #000;
+  /*display: flex;*/
+  align-self: center;    
+  justify-content: center;
+  justify-self: end;
+  animation: 2s alternate ;         
 }
 
 #main-container form button {
@@ -150,6 +148,9 @@ body{
   font-size: 32px;
 }
 
+.main-list-container{
+  display: flex
+}
 
 .list{
   border: 2px #6959CD outset;
@@ -180,10 +181,8 @@ body{
   margin-top: 1%;
   margin-bottom: 2%;;
   border-radius: 10px;  
-  /* background-color: #bebebe; */
-  
+  /* background-color: #bebebe; */  
 }
-
 
 #task-input{
   width: 90%;
@@ -194,10 +193,8 @@ body{
   font-size: 16px;
   padding-left: 2%;
   background-color: #b0a5e4;
-  margin: 0;
-  
+  margin: 0;  
 }
-
 
 #tasks{
   /* border: 1px solid #FFF; */
@@ -298,7 +295,6 @@ body{
   margin-left: 2%;    
   width: 92%;
   height: 100%;
-  
 }
 
 .tasks-main-container{
@@ -318,31 +314,11 @@ body{
   cursor: pointer;
   transition: background-color 2s, box-shadow 2s;
   flex-grow: 1;
-  animation: slideInUp 1s
-
-  
-  
+  animation: slideInUp 1s 
 }
 
 .tasks-main-container:hover{
-  background-color: #5b42cb; /* #16141e */  
-}
-
-::-webkit-scrollbar{
-  width: 8px;  
   
-}
-
-::-webkit-scrollbar-button{
-  background-color: transparent;      
-}
-
-::-webkit-scrollbar-thumb{
-  background-color: #bebebe;
-} 
-
-::-webkit-scrollbar-thumb:hover{
-  background-color: #808080;
 }
 
 @keyframes slidein {
@@ -367,21 +343,87 @@ body{
   }
 }
 
-  @keyframes slideup {
-    from {
-      margin-top: 200%;
-      width: 0%;
-      height: 0%;
-      margin-left: 200%;
+
+  @media only screen and (max-width: 1100px){    
+    .cards-view{            
+      width: 20%;       
+      align-self: flex-start;      
+      padding: 0;
+      margin-top: 6%;
+      margin-left: 2%;      
     }
   
-    to {
-      margin-top: 0%;
-      width: 80%;
-      height: 75%;
-      margin-left: 10%;
+    .card{
+      margin-left: 4%;
+      margin-bottom: 8%;
+      padding: 2%;      
     }
+
+    .card .card-label{
+      font-size: 18px;
+    }
+
+    .card:hover .card-label{
+      font-size: 20px;
+    }
+
+    .card .list-number{
+      font-size: 24px;
+    }
+
+    .card:hover .list-number{
+      font-size: 26px;
+    }
+  
+    #main-container #task-form button i{
+      font-size: 24px;
+    }
+
+    #main-container{
+      height: 70%;
+      width:85vw;
+      padding: 1%
+    }
+  
+    .list{
+      height: 60vh;
+      margin-top: 1%;    
+    }
+  
+    .list h1{
+      font-size: 24px;
+    }  
+  
+    .tasks-main-container{
+      width: 100%;
+      margin-bottom: 3%;
+    }
+  
+    .tasks-main-container .delete-button i{
+      font-size: 18px;
+    }
+  
+    .tasks-main-container .edit-button i{
+      font-size: 18px;
+    }
+  
+    .tasks-main-container .label{
+      font-size: 18px;
+    }
+  
+    .tasks-main-container .delete-button:hover i{
+      font-size: 20px;
+    }
+  
+    .tasks-main-container .edit-button:hover i{
+      font-size: 20px;
+    }
+  
+    .tasks-main-container:hover .label{
+      font-size: 20px;
+    }  
   }
+
 
 @media only screen and (max-width: 900px){
   body{
@@ -403,6 +445,11 @@ body{
   .card{
     margin-left: 4%;
     margin-bottom: 0;
+    padding: 2%
+  }
+
+  #main-container #task-form button i{
+    font-size: 22px;
   }
 
   #button-menu{
@@ -411,20 +458,378 @@ body{
   }
 
   #main-container{
-    height: 55%;
+    height: 56%;
     width:85vw;
-    padding-left: 1%;
-    padding-right: 1%;    
+    padding: 1%
   }
 
   .list{
     height: 48vh;
-    margin-top: 2%;    
+    margin-top: 1%;    
   }
 
   .list h1{
     font-size: 24px;
   }
+
+
+  .tasks-main-container{
+    width: 100%;
+    margin-bottom: 3%;
+  }
+
+  .tasks-main-container .delete-button i{
+    font-size: 18px;
+  }
+
+  .tasks-main-container .edit-button i{
+    font-size: 18px;
+  }
+
+  .tasks-main-container .label{
+    font-size: 18px;
+  }
+
+  .tasks-main-container .delete-button:hover i{
+    font-size: 20px;
+  }
+
+  .tasks-main-container .edit-button:hover i{
+    font-size: 20px;
+  }
+
+  .tasks-main-container:hover .label{
+    font-size: 20px;
+  }
+
+  
+}
+
+
+
+@media only screen and (max-width: 600px){
+  body{
+    display: block;    
+  }
+  .cards-view{
+    display: flex;
+    flex-direction: row;
+    width: 75%;    
+    align-self: flex-start;
+    margin-bottom: 8%;
+    padding: 0;
+    margin-top: 5%;
+    margin-left: 8%
+     
+  }
+
+  .input-container{
+    height: 6%
+  }
+
+  #main-container #task-form button i{
+    font-size: 20px;
+  }
+
+  #button-menu{
+    display: none;
+    
+  }
+
+  .list{
+    height: 45vh;
+    margin-top: 4%;
+  }
+
+  .list h1{
+    font-size: 20px;
+  }
+
+  .tasks-main-container{
+    width: 100%;
+    margin-bottom: 4%;
+  }
+
+  .tasks-main-container .delete-button i{
+    font-size: 16px;
+  }
+
+  .tasks-main-container .edit-button i{
+    font-size: 16px;
+  }
+
+  .tasks-main-container .label{
+    font-size: 16px;
+  }
+
+  .tasks-main-container .delete-button:hover i{
+    font-size: 18px;
+  }
+
+  .tasks-main-container .edit-button:hover i{
+    font-size: 18px;
+  }
+
+  .tasks-main-container:hover .label{
+    font-size: 18px;
+  } 
+}
+
+
+@media only screen and (max-width: 550px){
+  body{
+    display: block;    
+  }
+  .cards-view{
+    display: block;    
+    width: 50%;    
+    margin-bottom: 8%;
+    padding: 0;
+    margin-top: 5%;
+    margin-left: 22%;    
+  }
+
+  .card{  
+    margin-bottom: 4%;
+    padding-bottom: 5%;    
+  }
+
+  .card .card-label{
+    font-size: 18px;
+  }
+
+  .card .list-number{
+    font-size: 22px;
+  }
+
+  .card:hover .card-label{
+    font-size: 20px;
+  }
+
+  .card:hover .list-number{
+    font-size: 24px;
+  }
+
+  #main-container #task-form button i{
+    font-size: 20px;
+  }
+
+  .input-container{
+    height: 4%;
+    width: 85%;
+    margin-left: 10%;
+    margin-top: 2%;
+  }
+
+  #main-container{
+    height: 96%;
+    width:85vw;
+    padding: 1%;
+  }
+  .main-list-container{
+    display: block;
+  }
+
+  .list{
+    height: 42vh;
+    margin-top: 5%;
+    margin-left: 10%;
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+
+  .list h1{
+    font-size: 24px;
+  }
+  .tasks-main-container{
+    width: 100%;
+    margin-bottom: 3%;    
+  }
+
+  .tasks-main-container .delete-button i{
+    font-size: 18px;
+  }
+
+  .tasks-main-container .edit-button i{
+    font-size: 18px;
+  }
+
+  .tasks-main-container .label{
+    font-size: 18px;
+  }
+
+  .tasks-main-container .delete-button:hover i{
+    font-size: 20px;
+  }
+
+  .tasks-main-container .edit-button:hover i{
+    font-size: 20px;
+  }
+
+  .tasks-main-container:hover .label{
+    font-size: 20px;
+  }
+
+}
+
+
+
+@media only screen and (max-height: 700px){    
+  .cards-view{            
+    width: 18%;       
+    align-self: flex-start;      
+    padding: 0;
+    margin-top: 6%;
+    margin-left: 2%; 
+  }
+
+  .card{
+    margin-left: 4%;
+    margin-bottom: 8%;
+    padding: 2%; 
+    padding-bottom: 6%;     
+  }
+
+  .card .card-label{
+    font-size: 18px;
+  }
+
+  .card:hover .card-label{
+    font-size: 20px;
+  }
+
+  .card .list-number{
+    font-size: 24px;
+  }
+
+  .card:hover .list-number{
+    font-size: 26px;
+  }
+
+  #main-container #task-form button i{
+    font-size: 24px;
+  }
+
+  #main-container{
+    height: 75%;
+    width: 65vw;
+    padding: 1%;
+    margin-left: 10%;
+  }
+
+  .list{
+    height: 60vh;
+    margin-top: 1%;    
+  }
+
+  .list h1{
+    font-size: 24px;
+  }  
+
+  .tasks-main-container{
+    width: 100%;
+    margin-bottom: 3%;
+  }
+
+  .tasks-main-container .delete-button i{
+    font-size: 18px;
+  }
+
+  .tasks-main-container .edit-button i{
+    font-size: 18px;
+  }
+
+  .tasks-main-container .label{
+    font-size: 18px;
+  }
+
+  .tasks-main-container .delete-button:hover i{
+    font-size: 20px;
+  }
+
+  .tasks-main-container .edit-button:hover i{
+    font-size: 20px;
+  }
+
+  .tasks-main-container:hover .label{
+    font-size: 20px;
+  }
+}
+
+
+
+@media only screen and (max-height: 600px){    
+  .cards-view{            
+    width: 16%;       
+    align-self: flex-start;      
+    padding: 0;
+    margin-top: 6%;
+    margin-left: 2%; 
+  }
+
+  .card{
+    margin-left: 4%;
+    margin-bottom: 8%;
+    padding: 2%; 
+    padding-bottom: 8%;     
+  }
+
+  .card .card-label{
+    font-size: 18px;
+  }
+
+  .card:hover .card-label{
+    font-size: 20px;
+  }
+
+  .card .list-number{
+    font-size: 24px;
+  }
+
+  .card:hover .list-number{
+    font-size: 26px;
+  }
+
+  #main-container #task-form button i{
+    font-size: 24px;
+  }
+
+  #main-container{
+    height: 75%;
+    width: 55vw;
+    padding: 1%;
+    margin-left: 20%;
+  }
+
+  .list{
+    height: 58vh;
+    margin-top: 1%;    
+  } 
+}
+
+
+@media only screen and (max-height: 400px){   
+  .input-container{
+    height: 8%;
+  }
+
+  #main-container{
+    height: 90%;
+    width: 65vw;
+    padding: 1%;
+    padding-left: 4%;
+    margin-left: 10%;
+  }
+
+  .list{
+    height: 60vh;
+    width: 45%;
+    margin-top: 1%;
+  }
+
+  .list h1{
+    font-size: 24px;
+  }  
 
   .tasks-main-container{
     width: 100%;

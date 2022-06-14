@@ -82,28 +82,14 @@ function addTask(description) {
             const taskMainContainerElement = document.getElementsByClassName('tasks-main-container');
             for(let i=0; i < taskMainContainerElement.length; i++){
                 taskMainContainerElement[i].style.backgroundColor = '#1b1728';
-                taskMainContainerElement[i].style.transition = 'background-color 2s';
-    
-                taskMainContainerElement[i].addEventListener('mouseover', function() {
-                    taskMainContainerElement[i].style.backgroundColor = '#242034'
-                });
-                taskMainContainerElement[i].addEventListener('mouseout', function() {
-                    taskMainContainerElement[i].style.backgroundColor = '#1b1728'
-                });            
+                taskMainContainerElement[i].style.transition = 'background-color 2s';              
             } 
         }
         else{            
             const taskMainContainerElement = document.getElementsByClassName('tasks-main-container');
             for(let i=0; i < taskMainContainerElement.length; i++){
                 taskMainContainerElement[i].style.backgroundColor = '#533cc4';
-                taskMainContainerElement[i].style.transition = 'background-color 2s';
-    
-                taskMainContainerElement[i].addEventListener('mouseover', function() {
-                    taskMainContainerElement[i].style.backgroundColor = '#5b42cb'
-                });
-                taskMainContainerElement[i].addEventListener('mouseout', function() {
-                    taskMainContainerElement[i].style.backgroundColor = '#533cc4'
-                });            
+                taskMainContainerElement[i].style.transition = 'background-color 2s';                        
             }
         }
                    
@@ -134,33 +120,6 @@ function addTask(description) {
                 taskMainContainerElement.style.opacity = '1';
             }            
         })
-                                           
-        /*const teste = document.getElementsByClassName('check');
-        //let teste = newTask.getAttribute("checked")
-
-        const checkboxId = newTask.getAttribute('id');
-        const checkboxName = newTask.getAttribute('name');
-        const testeDois = document.getElementsByTagName('label')
-        arraytasks(teste, testeDois)
-
-        function arraytasks(teste, testeDois){
-            
-            //const taskLabel = document.getElementsByClassName('aa');
-            const TASKS = []
-            let obj = {            
-                taskId: teste,
-                taskName: testeDois,
-                //taskDescription: taskLabel.for
-            }
-        
-            TASKS.push(obj)
-           //localStorage.setItem("tasks", JSON.stringify(TASKS));
-            //let storageTasks = JSON.parse(localStorage.getItem("tasks"));
-            //console.log(TASKS)
-            //let valueCheck = teste.getAttribute("checked")
-            console.log(TASKS)
-        }
-        */
     }        
 }
 
@@ -262,7 +221,7 @@ function setDarkMode(){
         darkModeIcon.style.color= '#FFFF00';
         bodyElement.style.backgroundColor = '#604bc9'
         bodyElement.style.transition = 'background-color 2s';
-        mainContainerElement.style.backgroundColor = '#4a35b0';
+        mainContainerElement.style.backgroundColor = '#9081d9';
         mainContainerElement.style.transition = 'background-color 2s';
 
         for(let i=0; i < textElements.length; i++){
@@ -284,19 +243,7 @@ function setDarkMode(){
             });
             taskMainContainerElement[i].addEventListener('mouseout', function() {
                 taskMainContainerElement[i].style.backgroundColor = '#533cc4'
-            });            
+            });
         }
     }    
 }
-
-
-
-
-
-
-
-    
-    
-
-
-
