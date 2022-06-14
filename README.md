@@ -11,9 +11,10 @@ Uma das primeiras coisas que aprendi quando etrei no mundo da programação é q
 
 * O projeto consiste em uma to do list, onde cada tarefa adicionada pode ser editada ou excluída. Há um menu lateral com um dashboard simples mostrando ao usuário quantas tarefas estão pendentes e quantas já foram concluídas, contanto ainda com o modo escuro e com um layout responsivo.
 
-![Screenshot](./src/img/mainViewLightMode.png)
-![Screenshot](./src/img/mainViewDarkMode.png)
-![Screenshot](./src/img/dashboardViewLightMode.png)
-![Screenshot](./src/img/dashboardViewDarkMode.png)
-![Screenshot](./src/img/dashboardViewLight%26ResponsiveMode.png
-![Screenshot](./src/img/dashboardViewDark%26ResponsiveMode.png)
+![Screenshot](./src/img/mainViewLightMode.png) ![Screenshot](./src/img/mainViewDarkMode.png)
+
+
+![Screenshot](./src/img/dashboardViewLightMode.png) ![Screenshot](./src/img/dashboardViewDarkMode.png)
+
+
+![Screenshot](./src/img/dashboardViewLight&ResponsiveMode.png ![Screenshot](./src/img/dashboardViewDark&6ResponsiveMode.png)
