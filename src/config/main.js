@@ -1,6 +1,6 @@
-const btn = document.querySelector('#button-menu');
+const btn = document.getElementById('button-menu');
 const dashboardContainer = document.querySelector('.cards-view');
-const icon = document.querySelector('#menu-icon');
+const icon = document.getElementById('menu-icon');
 const darkMode = document.getElementById('dark-mode-button');
 let turnOnDarkMode = false;
 let teste = false;
@@ -18,7 +18,7 @@ btn.addEventListener('click', function(){
 });
 
 darkMode.addEventListener('click', function(){
-    setDarkMode(turnOnDarkMode)
+    setDarkMode()
 })
 
 
@@ -52,20 +52,19 @@ function addTask(description) {
         newTask.setAttribute('name', description);
         newTask.setAttribute('id', description);           
         taskLabel.setAttribute('value', description);
-        taskLabel.setAttribute('readonly', true);
-        taskLabel.setAttribute('rows', 4);
+        taskLabel.setAttribute('readonly', true);        
         taskLabel.setAttribute('maxlength', 100)
-        deleteButton.setAttribute('type', 'button');        
+        deleteButton.setAttribute('type', 'button');
+
         deleteIcon.classList.add("fa-solid", "fa-trash-can")
         editIcon.classList.add("fa-solid", "fa-pencil")
-
         newTask.classList.add('check')     
-        taskLabel.classList.add('label', 'text')   
-        
+        taskLabel.classList.add('label', 'text')           
         taskContainer.classList.add('task-item');
         deleteButton.classList.add('delete-button');
         editButton.classList.add('edit-button');
-        taskMainContainerElement.classList.add('tasks-main-container')          
+        taskMainContainerElement.classList.add('tasks-main-container');
+
         taskMainContainerElement.appendChild(taskContainer);
         taskContainer.appendChild(newTask);
         taskContainer.appendChild(taskLabel);        
@@ -79,7 +78,7 @@ function addTask(description) {
         increaseTaskToDoNumber();   
 
         if(turnOnDarkMode == true){
-            const taskMainContainerElement = document.getElementsByClassName('tasks-main-container');
+            const taskMainContainerElement = document.getElementsByClassName('tasks-main-container');            
             for(let i=0; i < taskMainContainerElement.length; i++){
                 taskMainContainerElement[i].style.backgroundColor = '#1b1728';
                 taskMainContainerElement[i].style.transition = 'background-color 2s';              
@@ -200,17 +199,10 @@ function setDarkMode(){
             cardsElements[i].style.backgroundColor = '#1b1728';
             cardsElements[i].style.transition = 'background-color 2s';
         }
-        
+                
         for(let i=0; i < taskMainContainerElement.length; i++){
             taskMainContainerElement[i].style.backgroundColor = '#1b1728';
-            taskMainContainerElement[i].style.transition = 'background-color 2s';
-
-            taskMainContainerElement[i].addEventListener('mouseover', function() {
-                taskMainContainerElement[i].style.backgroundColor = '#242034'
-            });
-            taskMainContainerElement[i].addEventListener('mouseout', function() {
-                taskMainContainerElement[i].style.backgroundColor = '#1b1728'
-            });            
+            taskMainContainerElement[i].style.transition = 'background-color 2s';                        
         }
     }
     else{
@@ -237,13 +229,6 @@ function setDarkMode(){
         for(let i=0; i < taskMainContainerElement.length; i++){
             taskMainContainerElement[i].style.backgroundColor = '#533cc4';
             taskMainContainerElement[i].style.transition = 'background-color 2s';
-
-            taskMainContainerElement[i].addEventListener('mouseover', function() {
-                taskMainContainerElement[i].style.backgroundColor = '#5b42cb'
-            });
-            taskMainContainerElement[i].addEventListener('mouseout', function() {
-                taskMainContainerElement[i].style.backgroundColor = '#533cc4'
-            });
         }
     }    
 }

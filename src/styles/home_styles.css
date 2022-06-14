@@ -318,7 +318,7 @@ body{
 }
 
 .tasks-main-container:hover{
-  
+  opacity: 0.8 !important;
 }
 
 @keyframes slidein {
