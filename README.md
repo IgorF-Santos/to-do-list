@@ -11,12 +11,17 @@ Uma das primeiras coisas que aprendi quando etrei no mundo da programação é q
 
 * O projeto consiste em uma to do list, onde cada tarefa adicionada pode ser editada ou excluída. Há um menu lateral com um dashboard simples mostrando ao usuário quantas tarefas estão pendentes e quantas já foram concluídas, contanto ainda com o modo escuro e com um layout responsivo.
 
+<div>
+    <img src="./src/img/mainViewLightMode.png" alt="Tela Principal Modo Claro" width="600"/>
+    <img src="./src/img/mainViewDarkMode.png" alt="Tela Principal Modo Escuro" width="600"/>
+</div>
 
-<img src="./src/img/mainViewLightMode.png" alt="Tela Principal Modo Claro" width="200"/>
-<img src="./src/img/mainViewDarkMode.png" alt="Tela Principal Modo Escuro" width="200"/>
+<div>
+    <img src="./src/img/dashboardViewLightMode.png" alt="Dashboard Modo Claro" width="600"/>
+    <img src="./src/img/dashboardViewDarkMode.png" alt="Dashboard Modo Escuro" width="600"/>
+</div>
 
-
-![Screenshot](./src/img/dashboardViewLightMode.png) ![Screenshot](./src/img/dashboardViewDarkMode.png)
-
-
-![Screenshot](./src/img/dashboardViewLight&ResponsiveMode.png ![Screenshot](./src/img/dashboardViewDark&6ResponsiveMode.png)
+<div>
+    <img src="./src/img/dashboardViewLight&ResponsiveMode.png" alt="Tela Principal Layout Responsivo Modo Claro" width="600"/>
+    <img src="./src/img/dashboardViewDark&6ResponsiveMode.png" alt="Tela Principal Layout Responsivo Modo Escuro" width="600"/>
+</div>
